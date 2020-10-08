@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="PrimePlanner.Pages.Tasks"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PrimePlanner.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" RequestedTheme="Dark">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" HorizontalAlignment="Center" Height="868"  VerticalAlignment="Center" Width="337" />
+        <Rectangle Grid.Column="2" HorizontalAlignment="Center" Height="868" VerticalAlignment="Center" Width="337"/>
+        <Rectangle Grid.Column="3" HorizontalAlignment="Center" Height="868" VerticalAlignment="Center" Width="337"/>
+        <TextBlock Foreground="White" Grid.Column="0" HorizontalAlignment="Left"  Margin="90,138,0,0" FontSize="25" FontWeight="Bold" Text="To Do" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Foreground="White" Grid.Column="1" HorizontalAlignment="Left" Margin="70,138,0,0" FontSize="25" FontWeight="Bold" Text="Completed" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Foreground="White" Grid.Column="3" HorizontalAlignment="Left" Margin="90,138,0,0" FontSize="25" FontWeight="Bold" Text="Overdue" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+        <!--<TextBlock TextAlignment="Center" FontSize="35" HorizontalAlignment="Left" Margin="89,142,0,0" Text="To-Do " TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="259"/>
+        <TextBlock TextAlignment="Center" FontSize="35" HorizontalAlignment="Left" Margin="460,142,0,0" Text="In-Progress " TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="259"/>
+        <TextBlock TextAlignment="Center" FontSize="35" HorizontalAlignment="Left" Margin="816,142,0,0" Text="Completed" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="259"/>
+        <TextBlock TextAlignment="Center" FontSize="35" HorizontalAlignment="Left" Margin="1172,142,0,0" Text="Overdue" TextWrapping="Wrap" VerticalAlignment="Top" Height="76" Width="259"/>-->
+
+        <!--Buttons-->
+        <Button Click="Button_AddToDo_Click" Margin="163,132,0,0" VerticalAlignment="Top" Visibility="Visible"  Background="#00000000">
+            <StackPanel>
+                <SymbolIcon Symbol="Add" RenderTransformOrigin="-0.4,0.65" Height="37" Width="32" />
+            </StackPanel>
+        </Button>
+        <Button Click="Button_AddInProgress_Click" Margin="675,142,0,0" VerticalAlignment="Top" Visibility="Visible"  Background="#00000000">
+            <StackPanel>
+                <SymbolIcon Symbol="Add" RenderTransformOrigin="-0.4,0.65" Height="37" Width="32" />
+            </StackPanel>
+        </Button>
+        <Button Click="Button_AddCompleted_Click" Margin="1025,142,0,0" VerticalAlignment="Top" Visibility="Visible"  Background="#00000000">
+            <StackPanel>
+                <SymbolIcon Symbol="Add" RenderTransformOrigin="-0.4,0.65" Height="37" Width="32" />
+            </StackPanel>
+        </Button>
+        <Button Click="Button_AddOverdue_Click" Margin="1360,142,0,0" VerticalAlignment="Top" Visibility="Visible"  Background="#00000000">
+            <StackPanel>
+                <SymbolIcon Symbol="Add" RenderTransformOrigin="-0.4,0.65" Height="37" Width="32" />
+            </StackPanel>
+        </Button>
+
+        <!--Listview-->
+        <ListView ScrollViewer.VerticalScrollBarVisibility="Hidden" Grid.Column="0" MinWidth="220"  Name="ToDoItems" ItemClick="ToDoItem_ItemClick" IsItemClickEnabled="True" Margin="51,228,47,97" >
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Padding" Value="10"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <!--<ListView.Resources>
+                <SolidColorBrush x:Key="ListViewItemBackgroundSelected" Color="White" />
+                <SolidColorBrush x:Key="ListViewItemBackgroundSelectedPointerOver" Color="White" />
+            </ListView.Resources>-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border CornerRadius="10" Height="170"  Width="360" Background="LightGray"  BorderBrush="Brown"  BorderThickness="1.5">
+                            <Grid>
+                                <TextBlock Foreground="Black"  FontSize="20" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Title}" MinWidth="220" MinHeight="150" Margin="10,10,0,0"/>
+                                <TextBlock Foreground="Black"  TextWrapping="Wrap" Text="{Binding Task}" Margin="10,50,0,0"/>
+                            </Grid>
+                        </Border>
+
+                        <!--<TextBlock Foreground="White"  FontSize="20" FontWeight="Bold" TextWrapping="Wrap" Text="{Binding Title}" MinWidth="220" MinHeight="150" Margin="5,50,0,0"/>
+                        <Rectangle HorizontalAlignment="Left" VerticalAlignment="Center" Height="37" Margin="0,-150,0,0" Stroke="White"  Fill="Yellow" Width="405"/>
+                        <Rectangle HorizontalAlignment="Center" VerticalAlignment="Center" Height="149" Margin="0,37,0,0" Stroke="White" Width="405" Fill="Gray"/>
+                        <TextBlock Foreground="White"  TextWrapping="Wrap" Text="{Binding Task}" Margin="5,85,0,0"/>-->
+                        <!--<TextBlock Text="{Binding Credits}" Margin="400,0,0,0"/>-->
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView Margin="466,250,784,97" RenderTransformOrigin="0.5,0.5">
+            <ListView.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </ListView.RenderTransform>
+        </ListView>
+        <ListView Margin="828,250,422,97" RenderTransformOrigin="0.5,0.5">
+            <ListView.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </ListView.RenderTransform>
+        </ListView>
+        <ListView Margin="1184,250,66,97" RenderTransformOrigin="0.5,0.5">
+            <ListView.RenderTransform>
+                <CompositeTransform ScaleX="-1"/>
+            </ListView.RenderTransform>
+        </ListView>
+        <Rectangle HorizontalAlignment="Center" Height="100" Margin="0,105,0,0" Stroke="White" VerticalAlignment="Top" Width="406"/>
+        <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="100" Margin="45,105,0,0" Stroke="White" VerticalAlignment="Top" Width="413"/>
+        <Rectangle Grid.Column="1" HorizontalAlignment="Center" Height="100" Margin="0,105,0,0" Stroke="White" VerticalAlignment="Top" Width="413"/>
+
+        <CommandBar x:Name="ToDoCommandBar" Visibility="Collapsed" Background="Transparent" IsOpen="False" DefaultLabelPosition="Right" Margin="-123,960,123,0">
+            <AppBarButton Icon="Edit" Label="Edit" Click="AppBarButton_Edit_Click"/>
+            <AppBarButton Icon="Delete" Label="Delete" Click="AppBarButton_Delete_Click"/>
+        </CommandBar>
+
+    </Grid>
+</Page>
