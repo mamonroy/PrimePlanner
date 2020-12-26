@@ -8,25 +8,41 @@
     mc:Ignorable="d"
     Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" RequestedTheme="Dark">
 
-    <Grid>
-        <TextBox x:Name="CourseName" HorizontalAlignment="Left" Margin="130,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Credits" HorizontalAlignment="Left" Margin="130,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223"/>
-        <TextBox x:Name="Grade" HorizontalAlignment="Left" Margin="130,271,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223"/>
-        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="20,153,0,0" Text="Course Name" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="94"/>
-        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="20,212,0,0" Text="Credits" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="94"/>
-        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="20,271,0,0" Text="Grade" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="94"/>
-        <Button Content="Submit" Margin="210,344,0,0" VerticalAlignment="Top" Click="Button_Submit_Click"/>
+    <Grid RenderTransformOrigin="0.252,0.345">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="sample">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="300"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CourseBoard.Background" Value="Transparent" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="sample2">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1000"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="CourseBoard.Background" Value="Transparent" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
-        <Border CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="472,88,30,80"/>
 
-        <ListView Name="listOfCourses" ItemsSource="{Binding entries}" ItemClick="listOfCourses_ItemClick"  IsItemClickEnabled="True" Margin="504,192,62,121" RenderTransformOrigin="0.067,0.095">
+
+
+        <Border x:Name="CourseBoard" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="10,38,622,305"/>
+
+        <ListView Name="listOfCourses" ItemsSource="{Binding entries}" ItemClick="listOfCourses_ItemClick"  IsItemClickEnabled="True" Margin="10,179,622,382" RenderTransformOrigin="0.067,0.095">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <TextBlock FontSize="25" Text="{Binding CourseName}" Margin="50,0,0,0"/>
                         <TextBlock FontSize="25"  Text="{Binding Grade}" Margin="425,0,0,0"/>
                         <TextBlock FontSize="25" Text="{Binding Credits}" Margin="750,0,0,0"/>
-                        <CommandBar x:Name="ToDoCommandBar" Background="Transparent" IsOpen="False" Margin="950,0,0,0">
+                        <CommandBar x:Name="ToDoCommandBar" Background="Transparent" IsOpen="False" Margin="850,0,0,0">
                             <AppBarButton Icon="Edit" Label="Edit" Click="AppBarButton_Edit_Click" />
                             <AppBarButton Icon="Delete" Label="Delete" Click="AppBarButton_Delete_Click"/>
                         </CommandBar>
@@ -35,10 +51,13 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBlock FontSize="30" Foreground="White" Margin="561,122,686,830" FontWeight="Bold" Text="Course Name" TextWrapping="Wrap"/>
-        <TextBlock FontSize="30" Foreground="White" Margin="945,121,449,834" FontWeight="Bold" Text="Grade" TextWrapping="Wrap"/>
-        <TextBlock FontSize="30" Foreground="White" Margin="1251,122,131,839" FontWeight="Bold" Text="Credits" TextWrapping="Wrap"/>
-        <Border CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="32,536,1162,89"/>
-        <TextBlock FontSize="30" Foreground="White" Margin="111,564,1136,388" FontWeight="Bold" Text="Summary Board" TextWrapping="Wrap"/>
+        <TextBlock FontSize="30" Foreground="White" Margin="69,70,1238,885" FontWeight="Bold" Text="Course Name" TextWrapping="Wrap"/>
+        <TextBlock FontSize="30" Foreground="White" Margin="414,70,996,887" FontWeight="Bold" Text="Grade" TextWrapping="Wrap"/>
+        <TextBlock FontSize="30" Foreground="White" Margin="701,70,677,875" FontWeight="Bold" Text="Credits" TextWrapping="Wrap"/>
+        <Border x:Name="CourseBoard_Copy" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1077,70,95,713" RenderTransformOrigin="0.514,0.51"/>
+        <Border x:Name="CourseBoard_Copy1" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1016,356,35,305" RenderTransformOrigin="0.496,0.5"/>
+        <Button x:Name="AddNewCourseButton" Click="Add_Course_Button_Click"  Content="Add New Course" Margin="387,649,0,0" VerticalAlignment="Top" Height="46" Width="138"/>
+
+
     </Grid>
 </Page>

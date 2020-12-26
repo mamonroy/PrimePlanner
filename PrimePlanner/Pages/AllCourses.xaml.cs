@@ -38,13 +38,16 @@ namespace PrimePlanner.Pages
             listOfCourses.ItemsSource = allCourses;
         }
 
-        private void Button_Submit_Click(object sender, RoutedEventArgs e)
+        private async void Add_Course_Button_Click(object sender, RoutedEventArgs e)
         {
-            Database.AllCourses.AddData(CourseName.Text, Grade.Text, Credits.Text);
-            CourseName.Text = string.Empty;
-            Grade.Text = string.Empty;
-            Credits.Text = string.Empty;
-            allCourses = Database.AllCourses.RetrieveFromDB();
+            Dialogs.AddCourse addCourse = new Dialogs.AddCourse();
+            ContentDialogResult result = await addCourse.ShowAsync();
+
+            if(result == ContentDialogResult.Primary)
+            {
+                allCourses = Database.AllCourses.RetrieveFromDB();
+            }
+            
         }
 
         private void listOfCourses_ItemClick(object sender, ItemClickEventArgs e)
