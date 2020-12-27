@@ -24,6 +24,20 @@ namespace PrimePlanner.Pages
     public sealed partial class AllCourses : Page
     {
         public static ObservableCollection<Course> allCourses = new ObservableCollection<Course>();
+        public static Dictionary<string, double> gradeSystem = new Dictionary<string, double>()
+        {
+            { "A+", 4.33 },
+            { "A", 4.00 },
+            { "A-", 3.67 },
+            { "B+", 3.33 },
+            { "B", 3 },
+            { "B-", 2.67 },
+            { "C+", 2.33 },
+            { "C", 2.00 },
+            { "C-", 1.67 },
+            { "D", 1.00 },
+            { "F", 0 }
+        };
 
         public AllCourses()
         {
@@ -31,11 +45,46 @@ namespace PrimePlanner.Pages
             Database.AllCourses.InitializeDatabase();
             allCourses = Database.AllCourses.RetrieveFromDB();
             DisplayCourses();
+            DisplaySummaryBoard();
         }
 
         public void DisplayCourses()
         {
             listOfCourses.ItemsSource = allCourses;
+        }
+
+        public void DisplaySummaryBoard()
+        {
+            CGPA.Text = calculateCGPA();
+            Units.Text = calculateUnits();
+            Status.Text = checkAcademicStatus();
+        }
+
+        public string calculateCGPA()
+        {
+            double GradePoint = 0;
+            int cumulativeCredits = 0;
+            foreach (Course courses in allCourses)
+            {
+                GradePoint += gradeSystem[courses.Grade] * Convert.ToInt32(courses.Credits);
+                cumulativeCredits += Convert.ToInt32(courses.Credits);
+            }
+            return Convert.ToString(Math.Round(GradePoint / cumulativeCredits, 4));
+        }
+
+        public string calculateUnits()
+        {
+            int cumulativeCredits = 0;
+            foreach (Course courses in allCourses)
+            {
+                cumulativeCredits += Convert.ToInt32(courses.Credits);
+            }
+            return Convert.ToString(cumulativeCredits);
+        }
+
+        public string checkAcademicStatus()
+        {
+            return "Good Academic Status";
         }
 
         private async void Add_Course_Button_Click(object sender, RoutedEventArgs e)
@@ -46,6 +95,7 @@ namespace PrimePlanner.Pages
             if(result == ContentDialogResult.Primary)
             {
                 allCourses = Database.AllCourses.RetrieveFromDB();
+                DisplaySummaryBoard();
             }
             
         }
@@ -66,6 +116,7 @@ namespace PrimePlanner.Pages
             {
                 Database.AllCourses.DeleteCourseDB(course.ID.ToString());
                 allCourses = Database.AllCourses.RetrieveFromDB();
+                DisplaySummaryBoard();
             }
         }
 
@@ -81,6 +132,7 @@ namespace PrimePlanner.Pages
             if (result == ContentDialogResult.Primary)
             {
                 allCourses = Database.AllCourses.RetrieveFromDB();
+                DisplaySummaryBoard();
             }
         }
     }

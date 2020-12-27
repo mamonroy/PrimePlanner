@@ -35,7 +35,7 @@
 
         <Border x:Name="CourseBoard" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="10,38,622,305"/>
 
-        <ListView Name="listOfCourses" ItemsSource="{Binding entries}" ItemClick="listOfCourses_ItemClick"  IsItemClickEnabled="True" Margin="10,179,622,382" RenderTransformOrigin="0.067,0.095">
+        <ListView Name="listOfCourses" ItemsSource="{Binding entries}" ItemClick="listOfCourses_ItemClick"  IsItemClickEnabled="True" Margin="10,179,622,382" RenderTransformOrigin="0.509,0.485">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -57,6 +57,14 @@
         <Border x:Name="CourseBoard_Copy" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1077,70,95,713" RenderTransformOrigin="0.514,0.51"/>
         <Border x:Name="CourseBoard_Copy1" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1016,356,35,305" RenderTransformOrigin="0.496,0.5"/>
         <Button x:Name="AddNewCourseButton" Click="Add_Course_Button_Click"  Content="Add New Course" Margin="387,649,0,0" VerticalAlignment="Top" Height="46" Width="138"/>
+        <TextBlock TextAlignment="Center" FontSize="30" Foreground="White" Margin="1173,90,187,865" FontWeight="Bold" Text="Summary" TextWrapping="Wrap"/>
+        <TextBlock FontSize="20" Foreground="White" Margin="1092,140,345,834" Text="CGPA" TextWrapping="Wrap"/>
+        <TextBlock FontSize="20" Foreground="White" Margin="1092,172,250,802" Text="Units" TextWrapping="Wrap"/>
+        <TextBlock FontSize="20" Foreground="White" Margin="1092,204,250,770" Text="Status" TextWrapping="Wrap"/>
+        
+        <TextBlock x:Name="CGPA" FontSize="20" Foreground="White" Margin="1173,140,264,834" TextWrapping="Wrap"/>
+        <TextBlock x:Name="Units" FontSize="20" Foreground="White" Margin="1173,172,264,802" TextWrapping="Wrap"/>
+        <TextBlock x:Name="Status" FontSize="20" Foreground="White" Margin="1173,204,207,770" TextWrapping="Wrap"/>
 
 
     </Grid>
