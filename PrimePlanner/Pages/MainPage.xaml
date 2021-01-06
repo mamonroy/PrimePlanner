@@ -18,12 +18,11 @@
                 <NavigationViewItemHeader Content="Main"/>
                 <NavigationViewItem Content="Home" Icon="Home"/>
                 <NavigationViewItemHeader Content="Academics"/>
-                <NavigationViewItem Content="My Current Courses" Icon="Manage"/>
-                <NavigationViewItem Content="All Courses" Icon="Find"/>
-                <NavigationViewItem Content="Graduation Progress" Icon="Calculator"/>
+                <NavigationViewItem Content="All Courses" Icon="Document"/>
+                <NavigationViewItem Content="Find Courses" Icon="Find"/>
                 <NavigationViewItemSeparator/>
                 <NavigationViewItemHeader Content="Reminders"/>
-                <NavigationViewItem Content="Tasks" Icon="Document"/>
+                <NavigationViewItem Content="Tasks" Icon="Manage"/>
                 <NavigationViewItemSeparator/>
                 <NavigationViewItemHeader Content="Others"/>
                 <NavigationViewItem Content="Calendar" Icon="CalendarDay"/>

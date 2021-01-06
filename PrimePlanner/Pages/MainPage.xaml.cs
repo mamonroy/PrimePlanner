@@ -44,7 +44,7 @@ namespace PrimePlanner
                             mainFrame.Navigate(typeof(AllCourses));
                             break;
 
-                        case "Graduation Progress":
+                        case "Find Courses":
                             //contentFrame.Navigate(typeof(Views.CreateClaimsTicket));
                             break;
 

@@ -61,7 +61,7 @@
         <TextBlock FontSize="20" Foreground="White" Margin="1092,140,345,834" Text="CGPA" TextWrapping="Wrap"/>
         <TextBlock FontSize="20" Foreground="White" Margin="1092,172,250,802" Text="Units" TextWrapping="Wrap"/>
         <TextBlock FontSize="20" Foreground="White" Margin="1092,204,250,770" Text="Status" TextWrapping="Wrap"/>
-        
+
         <TextBlock x:Name="CGPA" FontSize="20" Foreground="White" Margin="1173,140,264,834" TextWrapping="Wrap"/>
         <TextBlock x:Name="Units" FontSize="20" Foreground="White" Margin="1173,172,264,802" TextWrapping="Wrap"/>
         <TextBlock x:Name="Status" FontSize="20" Foreground="White" Margin="1173,204,207,770" TextWrapping="Wrap"/>
