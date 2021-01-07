@@ -116,6 +116,8 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="API\ClassObjects\CourseInfo.cs" />
+    <Compile Include="API\ClassObjects\CourseTitle.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -141,6 +143,9 @@
     <Compile Include="Pages\AllCourses.xaml.cs">
       <DependentUpon>AllCourses.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\FindCourses.xaml.cs">
+      <DependentUpon>FindCourses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +153,7 @@
       <DependentUpon>Tasks.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="API\CourseOutline.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -242,6 +248,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FindCourses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -252,6 +262,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.7</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite">
       <Version>3.1.8</Version>
     </PackageReference>

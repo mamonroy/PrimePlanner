@@ -1,0 +1,28 @@
+﻿<Page
+    x:Class="PrimePlanner.Pages.FindCourses"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PrimePlanner.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <ListView x:Name="listOfCourses" ItemsSource="{Binding entries}" Margin="101,409,67,10" RenderTransformOrigin="0.509,0.485">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock FontSize="18" Text="{Binding name_code}" Margin="100,0,0,0"/>
+                        <TextBlock FontSize="18" Text="{Binding title}" Margin="350,0,0,0"/>
+                        <TextBlock FontSize="18" Text="{Binding sectionNumber}" Margin="700,0,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox x:Name="queryCourse" HorizontalAlignment="Left" Margin="318,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
+        <Button Click="Search_Button_Click" Content="Search" Margin="451,151,0,0" VerticalAlignment="Top"/>
+        <TextBlock FontSize="20"  x:Name="courseDescription" HorizontalAlignment="Left" Margin="233,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="173" Width="1096"/>
+
+    </Grid>
+</Page>
