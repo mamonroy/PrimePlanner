@@ -34,16 +34,10 @@ namespace PrimePlanner.Pages
             ObservableCollection<API.ClassObjects.CourseTitle> course =  API.CourseOutline.GetAvailableCourses(queryCourse.Text);
             listOfCourses.ItemsSource = course;
 
-            if (course != null)
-            {
+            if (course.Any())
                 courseDescription.Text = API.CourseOutline.getCourseDescription(queryCourse.Text, course.FirstOrDefault().sectionNumber);
-            }
             else
-            {
-                courseDescription.Text = "";
-            }
-
-
+                courseDescription.Text = "This course is either not offered this season or course code is invalid";
         }
     }
 }

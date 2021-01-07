@@ -3,6 +3,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Net;
 
 namespace PrimePlanner.API
@@ -19,22 +20,30 @@ namespace PrimePlanner.API
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
             request.Method = "GET";
             request.ContentType = "application/json";
-            string response = null;
 
-            try
-            {
-                WebResponse webResponse = request.GetResponse();
-                Stream webStream = webResponse.GetResponseStream();
-                StreamReader responseReader = new StreamReader(webStream);
-                response = responseReader.ReadToEnd();
-            }
+            WebResponse webResponse = request.GetResponse();
+            Stream webStream = webResponse.GetResponseStream();
+            StreamReader responseReader = new StreamReader(webStream);
+            string response = responseReader.ReadToEnd();
 
+            return response;
+        }
+
+        public static Boolean isGETSuccess(string URL)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(URL);
+            request.Method = "GET";
+            request.ContentType = "application/json";
+
+            try { WebResponse webResponse = request.GetResponse(); }
             catch (Exception e)
             {
                 Debug.WriteLine("-----------------");
                 Debug.WriteLine(e.Message);
+                return false;
             }
-            return response;
+
+            return true;
         }
 
         public static string getCourseDescription(string parameters, string sectionNumber)
@@ -46,10 +55,6 @@ namespace PrimePlanner.API
             Debug.WriteLine(URL);
             string response = GETApi(URL);
 
-            if (response == null)
-            {
-                return null;
-            }
             JObject jsonObj = JObject.Parse(response);
             Debug.WriteLine(jsonObj);
             return (string)jsonObj["info"]["description"];
@@ -58,18 +63,29 @@ namespace PrimePlanner.API
         public static ObservableCollection<API.ClassObjects.CourseTitle> GetAvailableCourses(string parameters)
         {
             ObservableCollection<API.ClassObjects.CourseTitle> course = new ObservableCollection<API.ClassObjects.CourseTitle>();
-            var firstSpaceIndex = parameters.IndexOf(" ");
-            var firstString = parameters.Substring(0, firstSpaceIndex);
-            var secondString = parameters.Substring(firstSpaceIndex + 1);
-            string URL = baseURL + firstString + "/" + secondString;
-            string response = GETApi(URL);
+            string URL = null;
 
-            if(response == null)
+            // If query for search contains white spaces, seperate them
+            if(parameters.Contains(" "))
             {
-                return null;
+                var firstSpaceIndex = parameters.IndexOf(" ");
+                var firstString = parameters.Substring(0, firstSpaceIndex);
+                var secondString = parameters.Substring(firstSpaceIndex + 1);
+                URL = baseURL + firstString + "/" + secondString;
             }
 
+            else
+            {
+                URL = baseURL + parameters;
+            }
+
+            // Returns an empty Collection if API is not working
+            if (!isGETSuccess(URL))
+                return course;
+
+            string response = GETApi(URL);
             var token = JToken.Parse(response);
+
             if (token is JObject)
             {
                 JObject jsonObj = JObject.Parse(response);
