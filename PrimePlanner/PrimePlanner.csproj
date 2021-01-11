@@ -116,7 +116,10 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="API\ClassObjects\CourseInfo.cs" />
+    <Compile Include="API\ClassObjects\CourseOutline\courseSchedule.cs" />
+    <Compile Include="API\ClassObjects\CourseOutline\Info.cs" />
+    <Compile Include="API\ClassObjects\CourseOutline\Instructor.cs" />
+    <Compile Include="API\ClassObjects\CourseOutline\requiredText.cs" />
     <Compile Include="API\ClassObjects\CourseTitle.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

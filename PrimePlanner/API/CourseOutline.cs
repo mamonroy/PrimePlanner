@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace PrimePlanner.API
 {
@@ -57,7 +58,15 @@ namespace PrimePlanner.API
 
             JObject jsonObj = JObject.Parse(response);
             Debug.WriteLine(jsonObj);
-            return (string)jsonObj["info"]["description"];
+
+            string description = (string)jsonObj["info"]["description"];
+            string prerequisites = null;
+            if ((string)jsonObj["info"]["prerequisites"] == "")
+                prerequisites = " No Prerequisites required for this course";
+            else 
+                prerequisites = " Prerequisites: " + (string)jsonObj["info"]["prerequisites"];
+
+            return description + prerequisites;
         }
 
         public static ObservableCollection<API.ClassObjects.CourseTitle> GetAvailableCourses(string parameters)
