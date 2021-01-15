@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using PrimePlanner.API.ClassObjects.CourseOutlineMembers;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
@@ -13,10 +14,11 @@ namespace PrimePlanner.API
 {
     public class CourseOutline
     {
-        courseSchedule courseSchedule { get; set; }
-        Info info { get; set; }
-        Instructor instructor { get; set; }
-        requiredText requiredText { get; set; }
+       
+        public Info info { get; set; }
+        public List<Instructor> instructor = new List<Instructor>();
+        public List<courseSchedule> courseSchedule = new List<courseSchedule>();
+        public List<requiredText> requiredText = new List<requiredText>();
 
     }
 }

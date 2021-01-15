@@ -8,9 +8,9 @@ namespace PrimePlanner.API.ClassObjects.CourseOutlineMembers
 {
     public class courseSchedule
     {
-        string startTime { set; get; }
-        string endTime { set; get; }
-        string date { set; get; }
+        public string startTime { set; get; }
+        public string endTime { set; get; }
+        public string days { set; get; }
 
     }
 }

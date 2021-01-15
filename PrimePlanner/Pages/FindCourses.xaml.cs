@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using PrimePlanner.API.ClassObjects;
+using PrimePlanner.API;
 
 namespace PrimePlanner.Pages
 {
@@ -31,12 +32,24 @@ namespace PrimePlanner.Pages
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
             ObservableCollection<CourseSections> courseSections = API.Course.GetCourseSections(queryCourse.Text);
+            ObservableCollection<CourseOutline> courseOutlines = new ObservableCollection<CourseOutline>();
             listOfCourses.ItemsSource = courseSections;
 
-            //if (courseSections.Any())
-            //    courseDescription.Text = API.Course.getCourseDescription(queryCourse.Text, course.FirstOrDefault().sectionNumber);
-            //else
-            //    courseDescription.Text = "This course is either not offered this season or course code is invalid";
+            if (courseSections.Any())
+            {
+                foreach (CourseSections courseSection in courseSections)
+                {
+                    string URL = API.Course.GetURL(queryCourse.Text + "/" + courseSection.value);
+                    CourseOutline courseOutlineObj = API.Course.setCourseOutlineObj(URL);
+                    courseOutlines.Add(courseOutlineObj);
+                }
+
+                courseDescription.Text = courseOutlines.First().info.description;
+            }
+            else
+            {
+                courseDescription.Text = "This course is either not offered this season or course code is invalid";
+            }
         }
     }
 }

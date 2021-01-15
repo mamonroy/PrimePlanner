@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PrimePlanner.API.ClassObjects.CourseOutlineMembers
 {
-    class requiredText
+    public class requiredText
     {
-        string details { get; set; }
+        public string details { get; set; }
        
     }
 }

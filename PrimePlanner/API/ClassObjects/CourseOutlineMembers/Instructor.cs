@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PrimePlanner.API.ClassObjects.CourseOutlineMembers
 {
-    class Instructor
+    public class Instructor
     {
-        string firstName { get; set; }
-        string lastName { get; set; }
-        string email { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string email { get; set; }
     }
 }
