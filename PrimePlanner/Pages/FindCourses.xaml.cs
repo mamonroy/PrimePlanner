@@ -14,8 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+using PrimePlanner.API.ClassObjects;
 
 namespace PrimePlanner.Pages
 {
@@ -31,13 +30,13 @@ namespace PrimePlanner.Pages
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
-            ObservableCollection<API.ClassObjects.CourseTitle> course =  API.CourseOutline.GetAvailableCourses(queryCourse.Text);
-            listOfCourses.ItemsSource = course;
+            ObservableCollection<CourseSections> courseSections = API.Course.GetCourseSections(queryCourse.Text);
+            listOfCourses.ItemsSource = courseSections;
 
-            if (course.Any())
-                courseDescription.Text = API.CourseOutline.getCourseDescription(queryCourse.Text, course.FirstOrDefault().sectionNumber);
-            else
-                courseDescription.Text = "This course is either not offered this season or course code is invalid";
+            //if (courseSections.Any())
+            //    courseDescription.Text = API.Course.getCourseDescription(queryCourse.Text, course.FirstOrDefault().sectionNumber);
+            //else
+            //    courseDescription.Text = "This course is either not offered this season or course code is invalid";
         }
     }
 }

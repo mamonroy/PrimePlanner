@@ -116,11 +116,13 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="API\ClassObjects\CourseOutline\courseSchedule.cs" />
-    <Compile Include="API\ClassObjects\CourseOutline\Info.cs" />
-    <Compile Include="API\ClassObjects\CourseOutline\Instructor.cs" />
-    <Compile Include="API\ClassObjects\CourseOutline\requiredText.cs" />
-    <Compile Include="API\ClassObjects\CourseTitle.cs" />
+    <Compile Include="API\API.cs" />
+    <Compile Include="API\ClassObjects\CourseOutline.cs" />
+    <Compile Include="API\ClassObjects\CourseOutlineMembers\courseSchedule.cs" />
+    <Compile Include="API\ClassObjects\CourseOutlineMembers\Info.cs" />
+    <Compile Include="API\ClassObjects\CourseOutlineMembers\Instructor.cs" />
+    <Compile Include="API\ClassObjects\CourseOutlineMembers\requiredText.cs" />
+    <Compile Include="API\ClassObjects\CourseSections.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -156,7 +158,7 @@
       <DependentUpon>Tasks.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="API\CourseOutline.cs" />
+    <Compile Include="API\Course.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

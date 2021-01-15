@@ -15,7 +15,7 @@
                     <Grid>
                         <TextBlock FontSize="18" Text="{Binding name_code}" Margin="50,0,0,0"/>
                         <TextBlock FontSize="18" Text="{Binding title}" Margin="150,0,0,0"/>
-                        <TextBlock FontSize="18" Text="{Binding sectionNumber}" Margin="600,0,0,0"/>
+                        <TextBlock FontSize="18" Text="{Binding text}" Margin="600,0,0,0"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
