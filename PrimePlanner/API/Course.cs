@@ -62,7 +62,7 @@ namespace PrimePlanner.API
                 name = (string)jsonResponse["info"]["name"],
                 designation = (string)jsonResponse["info"]["designation"]
             };
-
+            
             // Instructor
             JArray jsonArrInstructor = JArray.Parse(jsonResponse["instructor"].ToString());
             foreach (JObject obj in jsonArrInstructor)

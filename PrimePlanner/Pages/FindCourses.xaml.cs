@@ -33,7 +33,7 @@ namespace PrimePlanner.Pages
         {
             ObservableCollection<CourseSections> courseSections = API.Course.GetCourseSections(queryCourse.Text);
             ObservableCollection<CourseOutline> courseOutlines = new ObservableCollection<CourseOutline>();
-            listOfCourses.ItemsSource = courseSections;
+            listOfSections.ItemsSource = courseSections;
 
             if (courseSections.Any())
             {
@@ -44,12 +44,21 @@ namespace PrimePlanner.Pages
                     courseOutlines.Add(courseOutlineObj);
                 }
 
-                courseDescription.Text = courseOutlines.First().info.description;
+                courseDescription.Text = courseOutlines.First().info.description + " Prerequisites: " + courseOutlines.First().info.prerequisites;
             }
             else
             {
                 courseDescription.Text = "This course is either not offered this season or course code is invalid";
             }
+        }
+
+        private void listOfCourses_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CourseSections course = (CourseSections)e.ClickedItem;
+            string URL = API.Course.GetURL(queryCourse.Text + "/" + course.value);
+            CourseOutline courseOutlineObj = API.Course.setCourseOutlineObj(URL);
+            this.Frame.Navigate(typeof(CourseInfo), courseOutlineObj);
+
         }
     }
 }
