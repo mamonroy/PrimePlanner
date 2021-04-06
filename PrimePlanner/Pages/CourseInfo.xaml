@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" RequestedTheme="Dark">
 
     <Grid>
         <Button x:Name="BackButton"
@@ -18,7 +18,7 @@
         <TextBlock Text="Calendar Description" FontSize="25" FontFamily="Bold" HorizontalAlignment="Left" Margin="58,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="314"/>
         <TextBlock x:Name="calendarDescription" FontSize="20" HorizontalAlignment="Left" Margin="58,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
 
-        <TextBlock Text="Couse Details" FontSize="25" FontFamily="Bold" HorizontalAlignment="Left" Margin="58,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
+        <TextBlock Text="Couse Details" FontSize="25" FontFamily="Bold" HorizontalAlignment="Left" Margin="58,308,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
         <TextBlock x:Name="courseDetails" FontSize="20" HorizontalAlignment="Left" Margin="58,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="Auto"/>
 
         <TextBlock Text="Topics" FontSize="25" FontFamily="Bold" HorizontalAlignment="Left" Margin="58,500,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="314"/>

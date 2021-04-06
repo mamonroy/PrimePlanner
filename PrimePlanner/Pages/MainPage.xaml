@@ -13,7 +13,7 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <NavigationView x:Name="mainNavigationPane" IsPaneToggleButtonVisible="False" ItemInvoked="mainNavigationPane_ItemInvoked" PaneTitle="Educational Planner" IsPaneVisible="True" IsBackButtonVisible="Collapsed" PaneDisplayMode="Left">
+        <NavigationView x:Name="mainNavigationPane" RequestedTheme="Dark" IsPaneToggleButtonVisible="False" ItemInvoked="mainNavigationPane_ItemInvoked" PaneTitle="Educational Planner" IsPaneVisible="True" IsBackButtonVisible="Collapsed" PaneDisplayMode="Left">
             <NavigationView.MenuItems>
                 <NavigationViewItemHeader Content="Main"/>
                 <NavigationViewItem Content="Home" Icon="Home"/>

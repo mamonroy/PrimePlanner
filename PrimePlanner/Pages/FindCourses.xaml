@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" RequestedTheme="Dark">
 
     <Grid>
         <ListView x:Name="listOfSections" ItemsSource="{Binding entries}" Margin="59,344,109,75" IsItemClickEnabled="True" ItemClick="listOfCourses_ItemClick" RenderTransformOrigin="0.509,0.485">

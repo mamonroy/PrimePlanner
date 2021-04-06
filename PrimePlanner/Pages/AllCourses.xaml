@@ -55,7 +55,7 @@
         <TextBlock FontSize="30" Foreground="White" Margin="414,70,996,887" FontWeight="Bold" Text="Grade" TextWrapping="Wrap"/>
         <TextBlock FontSize="30" Foreground="White" Margin="701,70,677,875" FontWeight="Bold" Text="Credits" TextWrapping="Wrap"/>
         <Border x:Name="CourseBoard_Copy" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1077,70,95,713" RenderTransformOrigin="0.514,0.51"/>
-        <Border x:Name="CourseBoard_Copy1" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1016,356,35,305" RenderTransformOrigin="0.496,0.5"/>
+        <!--<Border x:Name="CourseBoard_Copy1" CornerRadius="10" Background="Transparent"  BorderBrush="White"  BorderThickness="2" Margin="1016,356,35,305" RenderTransformOrigin="0.496,0.5"/>-->
         <Button x:Name="AddNewCourseButton" Click="Add_Course_Button_Click"  Content="Add New Course" Margin="387,649,0,0" VerticalAlignment="Top" Height="46" Width="138"/>
         <TextBlock TextAlignment="Center" FontSize="30" Foreground="White" Margin="1173,90,187,865" FontWeight="Bold" Text="Summary" TextWrapping="Wrap"/>
         <TextBlock FontSize="20" Foreground="White" Margin="1092,140,345,834" Text="CGPA" TextWrapping="Wrap"/>

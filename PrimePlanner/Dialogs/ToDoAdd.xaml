@@ -11,7 +11,7 @@
     SecondaryButtonText="Cancel"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
-    RequestedTheme="Light">
+    RequestedTheme="Dark">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="91*"/>
